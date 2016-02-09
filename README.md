@@ -23,14 +23,6 @@ After the docker mongodb and restheart containers are started in background, you
 	$ docker logs mongodb
 	$ docker logs restheart
 
-Then you might need to adjust the RESTHEART_URL variable value in the following file:
-
-	app/scripts/app.js
-	
-Edit this line:
-
-	var RESTHEART_URL = "http://192.168.59.103:8080";
-
 Setting the IP (in this case 192.168.59.103, which should be the one with boot2docker) with the one of the restheart container; it might be the `localhost` or, if you are using boot2docker, you can retrive it with the command:
 
 	boot2docker ip
@@ -75,17 +67,15 @@ Adding some documents:
 	HTTP/1.1 201 Created
 	...
 	
-	
-
 
 ## Start the Ionic app
 
 First of all you have to install Node.js for your system [https://nodejs.org](https://nodejs.org).
 
 
-Install [Grunt](http://gruntjs.com/getting-started) and [Bower](http://bower.io) tools
+Install [Bower](http://bower.io) tool
 
-	npm install -g bower grunt-cli
+	npm install -g bower 
 
 
 Run `bower install`. If Bower asks you for the AngularJS version, choose 1.3.0.
@@ -93,12 +83,10 @@ Run `bower install`. If Bower asks you for the AngularJS version, choose 1.3.0.
 	bower install
 
 If you want to preview the web application, run `ionic serve`; after a while it should starts the default browser at [http://localhost:8100/](http://localhost:8100/).
-Of course, make sure you have already started RESTHeart as well.
 
 	ionic serve
 
-To login in the Web app, you can use the **admin** user with password **changeit**
-
+Of course, make sure you have already started RESTHeart as well.
 For more information on RESTHeart security setting refer to the [documentation](http://restheart.org/docs/security.html).
 
 ## Emulate the app
