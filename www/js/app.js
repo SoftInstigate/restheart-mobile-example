@@ -66,7 +66,7 @@ angular.module('starter', ['ionic', 'restangular', 'ngCordova','base64'])
         })
         .then(function () {
           //create the map
-          var map = L.map('map').setView([lat, long], 13);
+          var map = L.map('map').setView([lat, long], 5);
           L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
             attribution: '&copy; <a href="http://osm.org/copyright">OpenStreetMap</a>'
           }).addTo(map);
