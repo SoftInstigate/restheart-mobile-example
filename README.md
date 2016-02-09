@@ -88,7 +88,7 @@ Install [Bower](http://bower.io) tool
 
 	npm install -g bower 
 
-Run `bower install`. If Bower asks you for the AngularJS version, choose 1.3.0.
+Run `bower install`
 
 	bower install
 
@@ -101,7 +101,7 @@ For more information on RESTHeart security setting refer to the [documentation](
 
 ## Emulate the app
 
-Running `ionic emulate ios` you will emulate the app but before doing that you have to add the ios platform with the command `ionic platform add ios` and build using the command `ionic build ios`.
+Running `ionic emulate ios` will be emulated the app but before doing that you have to add the ios platform with the command `ionic platform add ios` and build it using the command `ionic build ios`.
 
 	ionic platform add ios
 	ionic build ios
