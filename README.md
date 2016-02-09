@@ -5,7 +5,7 @@ A simple hybrid mobile app example with restheart and ionic.
 ## Clone this repository locally
 
 	$ git clone https://github.com/SoftInstigate/restheart-mobile-example.git
-	$ cd restheart-example-example
+	$ cd restheart-mobile-example
 
 ## Install mongodb and RESTHeart
 
@@ -15,7 +15,7 @@ However the quickest way is using **docker**:
 
 	$ docker pull mongo
 	$ docker pull softinstigate/restheart
-	$ docker run -d --name mongodb mongo:3.0
+	$ docker run -d --name mongodb mongo
 	$ docker run -d -p 8080:8080 --name restheart --link mongodb:mongodb softinstigate/restheart
 
 After the docker mongodb and restheart containers are started in background, you can check the logs by issuing the `docker logs` command
@@ -36,21 +36,21 @@ If you are using `docker-machine` and let's say the default VM is called "defaul
 
 We will be using the RESTHeart API with [httpie](http://httpie.org) (you can also use another http client such as curl)
 
-Creating the database:
+Create the database:
 
 	$ http -a admin:changeit PUT http://192.168.99.100:8080/ari descr="restheart ionic app example db"
 	
 	HTTP/1.1 201 Created
 	...
 
-Creating the collection:
+Create the collection:
 
 	$ http -a admin:changeit PUT http://192.168.99.100:8080/ari/poi descr="point of interest collection"
 	
 	HTTP/1.1 201 Created
 	...
 
-Adding some documents:
+Add some documents:
 
 	$ http -a admin:changeit PUT http://192.168.99.100:8080/ari/poi/milan lat=45.460633 lng=9.183028
 	
@@ -73,10 +73,20 @@ Adding some documents:
 First of all you have to install Node.js for your system [https://nodejs.org](https://nodejs.org).
 
 
+Install [Ionic](http://ionicframework.com/)
+
+	npm install -g ionic
+	npm install -g cordova
+	npm install -g ios-sim
+	
+This demo app is going to use the GeoLocation function so you will need to install the Cordova geolocation plugin
+
+	ionic plugin add cordova-plugin-geolocation
+
+
 Install [Bower](http://bower.io) tool
 
 	npm install -g bower 
-
 
 Run `bower install`. If Bower asks you for the AngularJS version, choose 1.3.0.
 
@@ -99,9 +109,9 @@ Running `ionic emulate ios` you will emulate the app but before doing that you h
 
 Make sure to substitute ios with android to build for Android.
 
-	ionic platform add ios
-	ionic build ios
-	ionic emulate ios
+	ionic platform add android
+	ionic build android
+	ionic emulate android
 
 <hr></hr>
 
